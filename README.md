@@ -37,3 +37,35 @@ taquin_hamming = TaquinAStar(0)
 # Par
 taquin_hamming = TaquinAStar(0, votre_grille_de_depart)
 ```
+
+## Afficher les étapes de résolution
+
+Pour afficher les étapes de résolution, il suffit de passer `True` en paramètre du constructeur de la classe `TaquinAStar` (`src/TaquinAStar.py`).
+
+```python
+# main.py
+
+# Remplacer
+taquin_hamming = TaquinAStar(0)
+# Par
+taquin_hamming = TaquinAStar(0, verbose=True)
+```
+
+## Changer l'heuristique utilisée
+
+Pour changer l'heuristique utilisée, il suffit de changer le premier paramètre du constructeur de la classe `TaquinAStar` (`src/TaquinAStar.py`):
+- `0` pour la distance de `Manhattan`
+- `1` pour la distance de `Hamming`
+
+
+```python
+# main.py
+
+taquin_hamming = TaquinAStar(0)
+
+taquin_manhattan = TaquinAStar(1)
+```
+
+___
+
+Louis Travaux - 2023 - ING2 GSI G1

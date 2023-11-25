@@ -3,11 +3,12 @@ from src.utils.Tree import Tree
 
 
 class TaquinAStar(Taquin):
-    def __init__(self, heuristique: int, grid: list[list[int]] = [
-            [4, 5, 1], 
-            [2, 8, 3], 
-            [7, 6, 0]
-        ]):
+    def __init__(
+        self,
+        heuristique: int,
+        grid: list[list[int]] = [[4, 5, 1], [2, 8, 3], [7, 6, 0]],
+        verbose: bool = False,
+    ):
         """
         Initialise une instance de la classe taquin_a_star.
 
@@ -21,6 +22,7 @@ class TaquinAStar(Taquin):
 
         super().__init__(grid)
         self.heuristique = heuristique
+        self.verbose = verbose
 
     def d_hamming(self, grid: list):
         """
@@ -112,7 +114,11 @@ class TaquinAStar(Taquin):
                     solver.get_nodes(), key=lambda node: node.get_heuristique()
                 )
                 # Set the current grid to the grid with the min heuristique
-                self.grid = solver.get_current_node()
+                self.set_grid(solver.get_current_node())
+                if self.verbose:
+                    print(
+                        self.get_grid()
+                    )  # uncomment to see the solving process
             else:
                 if solver is not None:
                     # Remove the node with the min heuristique to try another
@@ -124,4 +130,3 @@ class TaquinAStar(Taquin):
                     return None
 
         return self
-    
