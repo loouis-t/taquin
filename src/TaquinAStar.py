@@ -116,9 +116,7 @@ class TaquinAStar(Taquin):
                 # Set the current grid to the grid with the min heuristique
                 self.set_grid(solver.get_current_node())
                 if self.verbose:
-                    print(
-                        self.get_grid()
-                    )  # uncomment to see the solving process
+                    print(self)  # see the solving process
             else:
                 if solver is not None:
                     # Remove the node with the min heuristique to try another
